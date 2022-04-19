@@ -1,0 +1,18 @@
+{
+  "env": {
+    "browser": true,
+    "commonjs": true,
+    "es2021": true,
+    "jest/globals": true
+  },
+  "extends": ["standard"],
+  "plugins": ["jest"],
+  "parserOptions": {
+    "ecmaVersion": "latest"
+  },
+  "rules": {
+    "semi": "off",
+    "comma-dangle": "off",
+    "space-before-function-paren": "off"
+  }
+}
