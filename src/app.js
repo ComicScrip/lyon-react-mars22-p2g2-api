@@ -48,13 +48,17 @@ app.get('/availabilities/:id', (req, res) => {
 // Poster une disponibilité.
 app.post('/availabilities', async (req, res) => {
   try {
-    const { userName, movieName, location, date } = req.body;
+    const { userName, movieName, location, date, heure } = req.body;
     const { error: validationErrors } = Joi.object({
       userName: Joi.string().max(50).required(),
       movieName: Joi.string().max(50).required(),
       location: Joi.string().max(50).required(),
       date: Joi.string().max(50).required(),
-    }).validate({ userName, movieName, location, date }, { abortEarly: false });
+      heure: Joi.string().max(50).required(),
+    }).validate(
+      { userName, movieName, location, date, heure },
+      { abortEarly: false }
+    );
 
     if (validationErrors) {
       return res.status(422).json({ errors: validationErrors.details });
@@ -62,11 +66,13 @@ app.post('/availabilities', async (req, res) => {
     const [{ insertId }] = await db
       .promise()
       .query(
-        'INSERT INTO availabilities (userName, movieName, location, date ) VALUES (?, ?, ?, ?)',
-        [userName, movieName, location, date]
+        'INSERT INTO availabilities (userName, movieName, location, date, heure ) VALUES (?, ?, ?, ?, ?)',
+        [userName, movieName, location, date, heure]
       );
 
-    res.status(201).send({ id: insertId, userName, movieName, location, date });
+    res
+      .status(201)
+      .send({ id: insertId, userName, movieName, location, date, heure });
   } catch (err) {
     console.error(err);
     res.sendStatus(500);

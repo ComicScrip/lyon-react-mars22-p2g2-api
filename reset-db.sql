@@ -1,37 +1,14 @@
-[
-    {
-        "id": 1,
-        "userName": "Brigitte",
-        "movieName": "taken",
-        "location": "Lyon",
-        "date": "2022-05-02T22:00:00.000Z"
-    },
-    {
-        "id": 3,
-        "userName": "Quentin",
-        "movieName": "Spartatouille",
-        "location": "Lyon 7",
-        "date": "2022-05-05T22:00:00.000Z"
-    },
-    {
-        "id": 2,
-        "userName": "Julie",
-        "movieName": "Twilight",
-        "location": "Lyon 6",
-        "date": "2022-05-21T22:00:00.000Z"
-    },
-    {
-        "id": 4,
-        "userName": "Benjamain",
-        "movieName": "Drive Indian",
-        "location": "Lyon 9",
-        "date": "2022-09-21T22:00:00.000Z"
-    },
-    {
-        "id": 5,
-        "userName": "Pierre",
-        "movieName": "Problemos",
-        "location": "Lyon 7",
-        "date": "2022-10-13T22:00:00.000Z"
-    }
-]
+DROP TABLE IF EXISTS `availabilities`;
+
+CREATE TABLE `availabilities` (
+`id` INT NOT NULL AUTO_INCREMENT,
+`userName` VARCHAR(100) NOT NULL, 
+`movieName` VARCHAR(100) NOT NULL, 
+`location` VARCHAR(100) NOT NULL, 
+`date` DATE NOT NULL,
+`heure` TIME NOT NULL,
+PRIMARY KEY (`id`));
+
+INSERT INTO availabilities (userName, movieName, location, date, heure ) 
+VALUES ('Romain', 'The Room', 'Bellecour', '2022-08-22', '16:47:41');
+
