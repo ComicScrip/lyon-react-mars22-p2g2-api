@@ -72,9 +72,6 @@ app.post('/availabilities', async (req, res) => {
     res.sendStatus(500);
   }
 });
-db.connect((err) => {
-  if (err) console.error('error connecting to db');
-});
 
 // Pour supprimer une disponibilité
 app.delete('/availabilities/:id', (req, res) => {
