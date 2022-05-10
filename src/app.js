@@ -14,7 +14,9 @@ app.get('/availabilities', async (req, res) => {
   try {
     const [availabilities] = await db
       .promise()
-      .query('SELECT * FROM availabilities ORDER BY `date` ASC');
+      .query(
+        'SELECT * FROM availabilities WHERE `date` >= CURRENT_TIMESTAMP ORDER BY `date` ASC'
+      );
     res.send(availabilities);
   } catch (err) {
     console.error(err);
