@@ -7,14 +7,6 @@ const Joi = require('joi');
 const app = express();
 app.use(cors());
 
-connection.connect((err) => {
-  if (err) {
-    console.error('error connecting: ' + err.stack);
-  } else {
-    console.log('connected as id ' + connection.threadId);
-  }
-});
-
 app.use(express.json());
 
 // Afficher les disponibilités
