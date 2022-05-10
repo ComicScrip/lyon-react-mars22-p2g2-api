@@ -1,17 +1,11 @@
 /* eslint-disable curly */
 const express = require('express');
+const cors = require('cors');
 const connection = require('./db-config');
 const db = require('./db-config');
 const Joi = require('joi');
 const app = express();
-
-connection.connect((err) => {
-  if (err) {
-    console.error('error connecting: ' + err.stack);
-  } else {
-    console.log('connected as id ' + connection.threadId);
-  }
-});
+app.use(cors());
 
 app.use(express.json());
 

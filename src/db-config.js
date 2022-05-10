@@ -7,7 +7,7 @@ const {
   DB_NAME,
 } = require('./environment.js');
 
-const connection = mysql.createConnection({
+const connection = mysql.createPool({
   host: DB_HOST,
   port: DB_PORT,
   user: DB_USER,

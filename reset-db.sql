@@ -9,6 +9,6 @@ CREATE TABLE `availabilities` (
 `heure` TIME NOT NULL,
 PRIMARY KEY (`id`));
 
-INSERT INTO availabilities (userName, movieName, location, date, heure ) 
+INSERT INTO availabilities (userName, movieName, location, date, heure) 
 VALUES ('Romain', 'The Room', 'Bellecour', '2022-08-22', '16:47:41');
-
+  
