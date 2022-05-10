@@ -1,9 +1,11 @@
 /* eslint-disable curly */
 const express = require('express');
+const cors = require('cors');
 const connection = require('./db-config');
 const db = require('./db-config');
 const Joi = require('joi');
 const app = express();
+app.use(cors());
 
 connection.connect((err) => {
   if (err) {
